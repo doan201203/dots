@@ -1,0 +1,3 @@
+có thể trích xuất đặc trưng từ:
+-toàn bộ đối tượng
+-các bộ phận của đối tượng
