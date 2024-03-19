@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "coc-clangd": ">=0.29.3",
+    "coc-snippets": ">=3.1.10",
+    "coc-tsserver": ">=2.1.4",
+    "coc-json": ">=1.9.2",
+    "coc-sh": ">=1.2.0",
+    "coc-java": ">=1.15.2",
+    "coc-highlight": ">=2.0.4",
+    "coc-pairs": ">=1.4.2",
+    "coc-lua": ">=2.0.5",
+    "coc-prettier": ">=9.3.2",
+    "coc-pyright": ">=1.1.347"
+  },
+  "lastUpdate": 1699261830802
+}

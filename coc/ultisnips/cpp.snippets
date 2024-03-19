@@ -1,0 +1,52 @@
+# A valid snippet should starts with:
+#
+#		snippet trigger_word [ "description" [ options ] ]
+#
+# and end with:
+#
+#		endsnippet
+#
+# Snippet options:
+#
+#		b - Beginning of line.
+#		i - In-word expansion.
+#		w - Word boundary.
+#		r - Regular expression
+#		e - Custom context snippet
+#		A - Snippet will be triggered automatically, when condition matches.
+#
+# Basic example:
+#
+#		snippet emitter "emitter properties" b
+#		private readonly ${1} = new Emitter<$2>()
+#		public readonly ${1/^_(.*)/$1/}: Event<$2> = this.$1.event
+#		endsnippet
+snippet beg "#include <bits/stdc++.h>" b
+#include <bits/stdc++.h>
+ 
+using namespace std;
+ 
+#ifdef LOCAL
+#include "algo/debug.h"
+#else
+#define debug(...) 42
+#endif
+
+#define int int64_t
+#define sz(x) (int)x.size()
+using i64 = long long;
+
+void solve() {
+
+}
+
+int32_t main() {
+  cin.tie(nullptr)->sync_with_stdio(false);
+  int TC = 1;
+  //cin >> TC;
+  while (TC--) {
+    solve();
+  }
+}
+endsnippet
+# Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
