@@ -1,0 +1,73 @@
+#!/bin/bash
+
+infile=""
+outfile=""
+cppfile=""
+cppver="gnu++20"
+cpflag="-O2"
+
+if [ "$#" -eq 0 ]; then
+  echo "exc.sh file.cpp -i inputFile -o outFile"
+  exit 1
+fi
+
+cppfile=$1
+if ! [ -e "$1" ]; then
+  echo "$1 doesn't exists"
+  exit 1
+fi 
+
+file_extension="${cppfile##*.}"
+shift
+filebase="${cppfile%.*}"
+
+if [[ "$file_extension" -eq "cpp" || "$file_extension" -eq "c" ]]; then
+  while [ "$#" -gt 0 ]; do
+    case "$1" in
+        -i)
+          if test -e "$2"; then
+            infile="$2"
+          else
+            echo "$2 doesn't exists"
+            exit 1
+          fi 
+          shift
+          shift
+            ;;
+        -o)
+          outfile="$2"
+          shift
+          shift
+            ;;
+        *)
+          echo "Unknow option"
+          exit 1
+    esac
+  done
+fi
+
+compile() {
+   g++ -std="$cppver" "$cpflag" -Wshadow -DLOCAL -Wall -Wextra "$cppfile" -o "$filebase" || { echo "Compile error"; exit 1; } 
+}
+
+clean() {
+  rm "$filebase"
+}
+
+compile
+
+if [ -z "$infile" ]; then
+  if [ -z "$outfile" ]; then
+    ./"$filebase"   
+  else
+    ./"$filebase" > "$outfile" 
+  fi 
+else
+  if [ -z "$outfile" ]; then
+    ./"$filebase" < "$infile"  
+  else
+    ./"${filebase}" < "${infile}" > "${outfile}"
+  fi 
+fi
+
+clean
