@@ -39,8 +39,8 @@ def my_harris(img_dir,window_size,k,threshold):
     
     plt.subplot(2, 3, 1)
     plt.title("Original")
-    plt.imshow(img, cmap='gray')
     plt.xticks([]), plt.yticks([])
+    plt.imshow(img, cmap='gray')
     
     plt.subplot(2, 3, 2)
     plt.title("Ix")
