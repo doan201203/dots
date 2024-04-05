@@ -104,8 +104,24 @@ const int max_tests = 10;
 
 // complete this function according to the requirements
 void generate_test() {
-  int n = rand(1, 100);
-  cout << n << '\n';
+  int n = rand(1, 10);
+  string s = gen_string(n);
+  cout << s << '\n';
+  int m = rand(1, 5);
+  cout << m << '\n';
+  int q = rand(1, 5);
+  while (q--) {
+    int op = rand(1, 2);
+    if (op == 1) {
+      int p = rand(1, n);
+      int nx = rand(1, 26);
+      cout << '!' << " " << p << " " << char(nx - 1 + 'a') << '\n';
+    } else {
+      int l = rand(1, n);
+      int r = rand(l, n);
+      cout << "? " << l << " " << r << '\n';
+    }
+  }
 }
 
 signed main() {
